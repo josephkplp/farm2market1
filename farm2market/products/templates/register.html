@@ -4,7 +4,11 @@
 {% block content %}
     <div class="form-container">
         <h2>Register</h2>
-        <form method="post">
+        
+        <!-- Message area for success/error messages -->
+        <div id="form-message" class="message"></div> 
+
+        <form id="registration-form" method="post">
             {% csrf_token %}
             <div class="form-group">
                 {{ form.username.label_tag }} 
