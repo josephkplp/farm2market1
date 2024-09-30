@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}Order History{% endblock %}
+
+{% block content %}
+<h2>Your Order History</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Order ID</th>
+            <th>Product</th>
+            <th>Quantity</th>
+            <th>Total Price</th>
+            <th>Status</th>
+            <th>Order Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for order in user.orders.all %}
+        <tr>
+            <td>{{ order.id }}</td>
+            <td>{{ order.product.name }}</td>
+            <td>{{ order.quantity }}</td>
+            <td>${{ order.total_price }}</td>
+            <td>{{ order.status }}</td>
+            <td>{{ order.order_date }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<a href="{% url 'home' %}">Return to Home</a>
+{% endblock %}

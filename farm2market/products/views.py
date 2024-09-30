@@ -1,7 +1,8 @@
-from .models import Product
 from django.http import HttpResponse
-from django.shortcuts import render, redirect
+from .models import Product
 from .forms import CustomUserCreationForm
+from django.shortcuts import render, redirect
+
 
 
 # Create your views here.
@@ -22,3 +23,8 @@ def register(request):
         form = CustomUserCreationForm()
     
     return render(request, 'register.html', {'form': form})
+
+def product_list(request):
+    products = Product.objects.all()  # Assuming you have a Product model
+    return render(request, 'products/product_list.html', {'products': products})
+
