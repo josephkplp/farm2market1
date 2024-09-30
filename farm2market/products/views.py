@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from .models import CustomUser, Product, Order, Review
 from django.http import HttpResponse
 from .models import Product
-from .forms import CustomUserCreationForm ,RegistrationForm, LoginForm, ProfileForm, OrderForm, ReviewForm
+from .forms import CustomUserCreationForm, RegistrationForm, LoginForm, ProfileForm, OrderForm, ReviewForm
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages

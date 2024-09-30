@@ -66,7 +66,8 @@ class Order(models.Model):
         ('delivered', 'Delivered'),
         ('cancelled', 'Cancelled'),
     ], default='pending')
-    total_price = models.DecimalField(max_digits=10, decimal_places=2, blank=True)
+    total_price = models.DecimalField(max_digits=10, decimal_places=2, blank=True),
+    shipping_address = models.CharField(max_length=255)  
 
     def save(self, *args, **kwargs):
         # Calculate the total price as product price * quantity
