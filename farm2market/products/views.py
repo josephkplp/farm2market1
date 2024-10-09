@@ -6,7 +6,7 @@ from .forms import CustomUserCreationForm, RegistrationForm, LoginForm, ProfileF
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
-
+from django.contrib.auth.decorators import login_required
 
 
 # Create your views here.
@@ -52,6 +52,7 @@ def user_logout(request):
     messages.success(request, 'You have been logged out.')
     return redirect('home')
 
+@login_required  # This decorator ensures that only logged-in users can access the profile@login_required  # This decorator ensures that only logged-in users can access the profile
 # Profile View
 def profile(request):
     if request.method == 'POST':

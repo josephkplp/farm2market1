@@ -19,11 +19,13 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 from products import urls as product_urls  # Add this import
+from products.views import home  # Import the home view
 
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', home, name='home'),  # Add this line for the root URL
     path('products/', include(product_urls)), # Link to products app
 ]
 
