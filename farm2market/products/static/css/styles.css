@@ -1,126 +1,151 @@
-/* Base styles */
+/* General Styles */
 body {
     font-family: Arial, sans-serif;
-    background-color: #f0f2f5;
     margin: 0;
     padding: 0;
+    background-color: smokewhite; /* Background Color */
 }
 
-/* Container styles */
-.container {
-    background: white;
-    padding: 2rem;
-    border-radius: 10px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    max-width: 400px;
-    margin: 0 auto;
-    text-align: center;
-}
-
-/* Header styles */
-h2 {
-    margin-bottom: 1rem;
-    color: #333;
-}
-
-/* Form styles */
-form {
+header {
     display: flex;
-    flex-direction: column;
-}
-
-.form-group {
-    margin-bottom: 1rem;
-}
-
-input {
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-}
-
-button {
-    padding: 10px;
-    background-color: #5a67d8;
+    flex-direction: column; /* Arrange items vertically */
+    align-items: center; /* Center items horizontally */
+    background-color: #232F3E; /* Dark header background */
+    padding: 10px 0;
     color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
 }
 
-button:hover {
-    background-color: #434190;
+.logo h1 a {
+    color: #FF9900; /* Logo color */
+    text-decoration: none; /* Remove underline */
 }
 
-/* Message styles */
-.message {
-    margin-bottom: 1rem;
-    padding: 10px;
-    border-radius: 5px;
-    display: none;
-    /* Initially hide message */
+nav {
+    margin: 10px 0; /* Space between logo and navigation */
 }
 
-.error-message {
-    color: red;
-    background-color: #f8d7da;
-    border: 1px solid #f5c6cb;
+nav ul {
+    list-style-type: none; /* Remove bullet points */
+    padding: 0; /* Remove padding */
 }
 
-.success-message {
-    color: green;
-    background-color: #d4edda;
-    border: 1px solid #c3e6cb;
+nav ul li {
+    display: inline; /* Display list items in a line */
+    margin-right: 20px; /* Space between menu items */
 }
 
-/* Social button styles */
-.social-buttons {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 1rem;
+nav ul li a {
+    color: white; /* Menu item color */
+    text-decoration: none; /* Remove underline */
 }
 
-.social-button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    width: 45%;
-    cursor: pointer;
-    transition: background-color 0.3s;
+nav ul li a:hover {
+    text-decoration: underline; /* Underline on hover */
 }
 
-.social-button:hover {
-    background-color: #f0f0f0;
+.search-container {
+    display: flex; /* Flex container for search bar */
+    justify-content: center; /* Center the search bar */
+    margin-top: 10px; /* Space above search bar */
 }
 
-.fa {
-    margin-right: 8px;
+.search-container input[type="text"] {
+    padding: 10px; /* Padding for the search input */
+    border: 1px solid #ccc; /* Border for the input */
+    border-radius: 4px; /* Rounded corners */
 }
 
-/* Specific page styles */
-.cart-item {
-    display: flex;
-    justify-content: space-between;
-    padding: 10px;
-    border-bottom: 1px solid #ddd;
+.search-container button {
+    padding: 10px 15px; /* Button padding */
+    margin-left: 5px; /* Space between input and button */
+    border: none; /* Remove border */
+    border-radius: 4px; /* Rounded corners */
+    background-color: #FF9900; /* Button color */
+    color: white; /* Button text color */
+    cursor: pointer; /* Pointer cursor on hover */
 }
 
-.cart-total {
-    font-weight: bold;
-    margin-top: 10px;
+.search-container button:hover {
+    background-color: #FFC300; /* Button hover color */
 }
 
-.checkout-container {
-    padding: 2rem;
-    background: white;
-    border-radius: 10px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+.container {
+    max-width: 1200px; /* Max width for the main content */
+    margin: 20px auto; /* Center the container */
+    padding: 20px; /* Padding inside the container */
+    background: white; /* Background for the main content */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Shadow effect */
 }
 
-.search-results {
-    margin-top: 20px;
+footer {
+    background-color: #232F3E; /* Dark footer background */
+    color: white; /* Footer text color */
+    text-align: center; /* Center footer text */
+    padding: 15px 0; /* Padding for footer */
+}
+
+.footer-content p {
+    margin: 5px 0; /* Space between footer paragraphs */
+}
+
+.footer-content a {
+    color: #FF9900; /* Link color */
+    text-decoration: none; /* Remove underline */
+}
+
+.footer-content a:hover {
+    text-decoration: underline; /* Underline on hover */
+}
+
+
+
+/* Media Queries */
+
+/* Styles for tablets (screen width 600px to 900px) */
+@media only screen and (max-width: 900px) {
+    header {
+        flex-direction: column; /* Stack items vertically */
+    }
+    nav ul {
+        flex-direction: column; /* Stack nav items vertically */
+        align-items: center; /* Center nav items */
+    }
+    nav ul li {
+        margin: 5px 0; /* Reduce margin between nav items */
+    }
+    .search-container {
+        flex-direction: column; /* Stack input and button vertically */
+        width: 100%; /* Full width for the search bar */
+    }
+}
+
+/* Styles for mobile phones (screen width 600px and below) */
+@media only screen and (max-width: 600px) {
+    header {
+        padding: 10px; /* Adjust header padding */
+    }
+    .logo h1 {
+        font-size: 24px; /* Smaller font size for logo */
+    }
+    nav ul {
+        padding: 0; /* Remove padding */
+    }
+    nav ul li {
+        display: block; /* Stack nav items */
+        margin: 10px 0; /* Space between nav items */
+    }
+    .search-container {
+        margin-top: 10px; /* Add space above search */
+    }
+    .search-container input[type="text"] {
+        width: 100%; /* Full width input field */
+        margin-bottom: 5px; /* Space below input */
+    }
+    .search-container button {
+        width: 100%; /* Full width button */
+    }
+    .container {
+        padding: 10px; /* Less padding for smaller screens */
+    }
 }

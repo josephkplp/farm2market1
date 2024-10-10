@@ -14,6 +14,8 @@ from .views import (
     order_history,
     search,
     page_not_found,
+    privacy_policy, 
+    terms_of_service,
 )
 
 
@@ -32,6 +34,8 @@ urlpatterns = [
     path('order-confirmation/<int:order_id>/', order_confirmation, name='order_confirmation'),
     path('order-history/', order_history, name='order_history'),
     path('search/', search, name='search'),
+    path('privacy-policy/', privacy_policy, name='privacy_policy'),
+    path('terms-of-service/', terms_of_service, name='terms_of_service'),
 ]
 
 handler404 = page_not_found
