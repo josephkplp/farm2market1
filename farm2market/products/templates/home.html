@@ -1,6 +1,9 @@
 {% extends 'base.html' %}
 
+{% load static %} 
+
 {% block title %}Home{% endblock %}
+<link rel="stylesheet" href="{% static 'css/home.css' %}"> <!-- Link to home.css -->
 
 {% block content %}
 <section class="hero">
@@ -18,6 +21,8 @@
                 <p>Price: ${{ product.price }}</p>
                 <a href="{% url 'product_detail' product.id %}">View Details</a>
             </div>
+         {% empty %}
+            <p>No featured products available at the moment.</p>
         {% endfor %}
     </div>
 </section>

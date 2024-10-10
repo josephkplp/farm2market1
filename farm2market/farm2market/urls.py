@@ -27,7 +27,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home, name='home'),  # Add this line for the root URL
     path('products/', include(product_urls)), # Link to products app
-]
+]  + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 
 # Serve static and media files during development

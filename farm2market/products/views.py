@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import CustomUser, Product, Order, Review
 from django.http import HttpResponse
-from .models import Product
+from .models import Product,Cart
 from .forms import CustomUserCreationForm, RegistrationForm, LoginForm, ProfileForm, OrderForm, ReviewForm
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
@@ -87,9 +87,9 @@ def product_detail(request, product_id):
     return render(request, 'product_detail.html', {'product': product, 'review_form': review_form})
 
 # Cart View
-
+@login_required 
 def cart(request):
-    cart_items = ...  # Your logic to get the cart items
+    cart_items =  Cart.objects.filter(user=request.user)  # Your logic to get the cart items
     for item in cart_items:
         item.total_price = item.product.price * item.quantity  # Calculate total price
 

@@ -92,3 +92,9 @@ class Review(models.Model):
 
     def __str__(self):
         return f"Review for {self.product.name} by {self.customer.username}"
+
+class Cart(models.Model):
+    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE, null=True, blank=True)  # Optional, track logged-in users
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)  # Link to the Product model
+    quantity = models.IntegerField(default=1)  # Track quantity of the product
+    added_on = models.DateTimeField(auto_now_add=True)  # Automatically add timestamp when the item is added
