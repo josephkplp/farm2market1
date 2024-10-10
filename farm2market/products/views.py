@@ -87,11 +87,16 @@ def product_detail(request, product_id):
     return render(request, 'product_detail.html', {'product': product, 'review_form': review_form})
 
 # Cart View
-def cart(request):
-    cart_items = request.session.get('cart', {})
-    total_cost = sum(Product.objects.get(id=item_id).price * quantity for item_id, quantity in cart_items.items())
-    return render(request, 'cart.html', {'cart': cart_items, 'total_cost': total_cost})
 
+def cart(request):
+    cart_items = ...  # Your logic to get the cart items
+    for item in cart_items:
+        item.total_price = item.product.price * item.quantity  # Calculate total price
+
+    context = {
+        'cart_items': cart_items,
+    }
+    return render(request, 'cart.html', context)
 # Checkout View
 def checkout(request):
     if request.method == 'POST':
