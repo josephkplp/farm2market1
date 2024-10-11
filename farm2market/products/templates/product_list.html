@@ -1,4 +1,6 @@
 {% extends 'base.html' %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/product_list.css' %}">
 
 {% block title %}Product List{% endblock %}
 
@@ -10,9 +12,9 @@
             <h3>{{ product.name }}</h3>
             <!-- Check if the product has an image -->
             {% if product.image %}
-                <img src="{{ product.image.url }}" alt="{{ product.name }}">
+                <img class="product-image" src="{{ product.image.url }}" alt="{{ product.name }}">
             {% else %}
-                <img src="/static/images/placeholder.png" alt="No image available">
+                <img class="product-image" src="{% static 'images/placeholder.png' %}" alt="No image available">
             {% endif %}
             <p>Price: ${{ product.price }}</p>
             <a href="{% url 'product_detail' product.id %}">View Details</a>

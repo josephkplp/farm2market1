@@ -1,34 +1,44 @@
-<!-- templates/registration/register.html -->
 {% extends "base.html" %}
-
-{% load static %}
-<link rel="stylesheet" type="text/css" href="{% static 'css/register.css' %}">
+{% load static %}  <!-- Load static files -->
 
 
 {% block content %}
+    <link rel="stylesheet" type="text/css" href="{% static 'path/to/your/register.css' %}"> <!-- Link to your register.css file -->
     <div class="form-container">
         <h2>Register</h2>
-        
+
         <!-- Message area for success/error messages -->
-        <div id="form-message" class="message"></div> 
+        <div id="form-message" class="message"></div>
 
         <form id="registration-form" method="post">
             {% csrf_token %}
             <div class="form-group">
-                {{ form.username.label_tag }} 
-                {{ form.username }}  <!-- Render username field directly -->
+                {{ form.username.label_tag }}
+                <div class="input-icon">
+                    <i class="fas fa-user"></i> <!-- Font Awesome user icon -->
+                    {{ form.username }}
+                </div>
             </div>
             <div class="form-group">
                 {{ form.email.label_tag }}
-                {{ form.email }}  <!-- Render email field directly -->
+                <div class="input-icon">
+                    <i class="fas fa-envelope"></i> <!-- Font Awesome envelope icon -->
+                    {{ form.email }}
+                </div>
             </div>
             <div class="form-group">
                 {{ form.password1.label_tag }}
-                {{ form.password1 }}  <!-- Render password1 field directly -->
+                <div class="input-icon">
+                    <i class="fas fa-lock"></i> <!-- Font Awesome lock icon -->
+                    {{ form.password1 }}
+                </div>
             </div>
             <div class="form-group">
                 {{ form.password2.label_tag }}
-                {{ form.password2 }}  <!-- Render password2 field directly -->
+                <div class="input-icon">
+                    <i class="fas fa-lock"></i> <!-- Font Awesome lock icon -->
+                    {{ form.password2 }}
+                </div>
             </div>
             <button type="submit" class="btn btn-primary">Register</button>
         </form>
@@ -36,19 +46,19 @@
         <p>Already have an account? <a href="{% url 'login' %}">Login here</a></p>
 
         <div class="social-buttons">
-            <div class="social-button" style="background-color: #DB4437; color: white;">
+            <div class="social-button google">
                 <i class="fab fa-google"></i> Google
             </div>
-            <div class="social-button" style="background-color: #0078D4; color: white;">
+            <div class="social-button microsoft">
                 <i class="fab fa-microsoft"></i> Microsoft
             </div>
         </div>
 
         <div class="social-buttons">
-            <div class="social-button" style="background-color: #000; color: white;">
+            <div class="social-button apple">
                 <i class="fab fa-apple"></i> Apple
             </div>
-            <div class="social-button" style="background-color: #5A67D8; color: white;">
+            <div class="social-button email">
                 <i class="fas fa-envelope"></i> Other Email
             </div>
         </div>

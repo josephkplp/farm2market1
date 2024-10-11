@@ -1,0 +1,96 @@
+/* Overall product grid layout */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    /* Responsive grid */
+    gap: 20px;
+    /* Space between grid items */
+    margin: 20px 0;
+    /* Margin around the grid */
+    padding: 0;
+    /* Reset padding */
+    list-style: none;
+    /* Remove list styles */
+}
+
+/* Individual product card styling */
+.product-card {
+    border: 1px solid #ddd;
+    /* Border around product card */
+    padding: 16px;
+    /* Inner spacing */
+    text-align: center;
+    /* Center text */
+    border-radius: 8px;
+    /* Rounded corners */
+    background-color: #fff;
+    /* Background color */
+    transition: box-shadow 0.3s ease;
+    /* Transition effect */
+}
+
+/* Product card hover effect */
+.product-card:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* Hover shadow effect */
+}
+
+/* Product image styling - ensuring consistent size */
+.product-image {
+    max-width: 100%;
+    /* Responsive width */
+    height: auto;
+    /* Maintain aspect ratio */
+    object-fit: cover;
+    /* Cover the area without distortion */
+    border-radius: 5px;
+    /* Rounded corners for images */
+    margin-bottom: 10px;
+    /* Spacing below images */
+}
+
+/* Product title styling */
+.product-card h3 {
+    font-size: 1.5rem;
+    /* Title size */
+    margin: 10px 0;
+    /* Spacing around title */
+}
+
+/* Price styling */
+.product-card p {
+    font-size: 1.2rem;
+    /* Price size */
+    color: #333;
+    /* Price color */
+    margin-bottom: 10px;
+    /* Spacing below price */
+}
+
+/* Link styling for view details */
+.product-card a {
+    text-decoration: none;
+    /* Remove underline */
+    color: #007BFF;
+    /* Link color */
+    font-weight: bold;
+    /* Bold link text */
+}
+
+.product-card a:hover {
+    color: #0056b3;
+    /* Darker link color on hover */
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 600px) {
+    .product-card h3 {
+        font-size: 1.2rem;
+        /* Decrease title size for smaller screens */
+    }
+
+    .product-card p {
+        font-size: 1rem;
+        /* Decrease price size for smaller screens */
+    }
+}
