@@ -8,7 +8,12 @@
     {% for product in products %}
         <div class="product-card">
             <h3>{{ product.name }}</h3>
-            <img src="{{ product.image.url }}" alt="{{ product.name }}">
+            <!-- Check if the product has an image -->
+            {% if product.image %}
+                <img src="{{ product.image.url }}" alt="{{ product.name }}">
+            {% else %}
+                <img src="/static/images/placeholder.png" alt="No image available">
+            {% endif %}
             <p>Price: ${{ product.price }}</p>
             <a href="{% url 'product_detail' product.id %}">View Details</a>
         </div>

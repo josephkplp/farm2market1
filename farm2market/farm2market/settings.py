@@ -60,7 +60,7 @@ ROOT_URLCONF = 'farm2market.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [ os.path.join(BASE_DIR, 'products/templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

@@ -70,21 +70,30 @@ def product_list(request):
     products = Product.objects.all()  # Fetch all products
     return render(request, 'product_list.html', {'products': products})
 
+
 # Product Detail View
 def product_detail(request, product_id):
+    # Retrieve the product or return a 404 if not found
     product = get_object_or_404(Product, id=product_id)
+
+    # Handle review submission
     if request.method == 'POST':
         review_form = ReviewForm(request.POST)
         if review_form.is_valid():
+            # Create a review but don't save it yet
             review = review_form.save(commit=False)
             review.product = product
-            review.customer = request.user
-            review.save()
-            messages.success(request, 'Review submitted successfully!')
+            review.customer = request.user  # Assuming request.user is the logged-in user
+            review.save()  # Save the review to the database
+            messages.success(request, 'Review submitted successfully!')  # Show success message
+            
+            # Redirect to the same product detail page
             return redirect('product_detail', product_id=product.id)
     else:
-        review_form = ReviewForm()
-    return render(request, 'product_detail.html', {'product': product, 'review_form': review_form})
+        review_form = ReviewForm()  # Create an empty review form for GET requests
+
+    # Render the product detail page with the product and review form
+    return render(request, 'product_details.html', {'product': product, 'review_form': review_form})
 
 # Cart View
 @login_required 
