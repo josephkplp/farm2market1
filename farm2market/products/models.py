@@ -1,6 +1,9 @@
 from django.contrib.auth.models import AbstractUser
 from django.db import models
 from django.utils import timezone
+from django.db.models.signals import post_save
+from django.dispatch import receiver
+from django.contrib.auth.models import Group
 
 
 
@@ -98,3 +101,15 @@ class Cart(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE)  # Link to the Product model
     quantity = models.IntegerField(default=1)  # Track quantity of the product
     added_on = models.DateTimeField(auto_now_add=True)  # Automatically add timestamp when the item is added
+
+
+
+@receiver(post_save, sender=CustomUser)
+def assign_group_on_create(sender, instance, created, **kwargs):
+    if created:
+        if instance.role == 'farmer':
+            farmer_group = Group.objects.get(name='Farmer')
+            instance.groups.add(farmer_group)
+        elif instance.role == 'customer':
+            customer_group = Group.objects.get(name='Customer')
+            instance.groups.add(customer_group)
